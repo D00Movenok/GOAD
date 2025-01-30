@@ -454,7 +454,7 @@ class Goad(cmd.Cmd):
 
 
 def parse_args():
-    task_help = 'tasks available : (install/start/stop/restart/destroy/status/show)'
+    task_help = 'tasks available : (install/start/stop/restart/destroy/status/show/check)'
     parser = argparse.ArgumentParser(prog='goad.py',
                                      description='Description : goad lab management console.',
                                      epilog=show_help(), formatter_class=argparse.RawDescriptionHelpFormatter)

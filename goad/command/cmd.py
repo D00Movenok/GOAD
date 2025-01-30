@@ -64,6 +64,9 @@ class Command:
 
     def check_azure(self):
         return self.is_in_path('az')
+    
+    def check_cloudru(self):
+        return self.is_in_path('cloud')
 
     def check_rsync(self):
         return self.is_in_path('rsync')
