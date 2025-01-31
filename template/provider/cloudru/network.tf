@@ -1,11 +1,11 @@
 resource "sbercloud_vpc" "goad_vpc" {
-  name   = "{{lab_name}}-virtual-network"
+  name   = "${var.name_prefix}-virtual-network"
   cidr   = "{{ip_range}}.0/24"
   region = var.region
 }
 
 resource "sbercloud_vpc_subnet" "goad_subnet" {
-  name       = "{{lab_name}}-vm-subnet"
+  name       = "${var.name_prefix}-vm-subnet"
   cidr       = "{{ip_range}}.0/24"
   gateway_ip = "{{ip_range}}.1"
   vpc_id     = sbercloud_vpc.goad_vpc.id
@@ -19,7 +19,7 @@ resource "sbercloud_vpc_eip" "goad_nat_public_ip" {
   }
 
   bandwidth {
-    name        = "{{lab_name}}-nat-public-ip"
+    name        = "${var.name_prefix}-nat-public-ip"
     share_type  = "PER"
     size        = var.eip_bandwidth_size
     charge_mode = "traffic"
@@ -27,7 +27,7 @@ resource "sbercloud_vpc_eip" "goad_nat_public_ip" {
 }
 
 resource "sbercloud_nat_gateway" "goad_nat" {
-  name      = "{{lab_name}}-nat"
+  name      = "${var.name_prefix}-nat"
   spec      = var.nat_gateway_spec
   vpc_id    = sbercloud_vpc.goad_vpc.id
   subnet_id = sbercloud_vpc_subnet.goad_subnet.id
@@ -40,7 +40,7 @@ resource "sbercloud_nat_snat_rule" "goad_snat" {
 }
 
 resource "sbercloud_networking_secgroup" "secgroup_allow_any" {
-  name                 = "{{lab_name}}-allow-any"
+  name                 = "${var.name_prefix}-allow-any"
   delete_default_rules = true
 }
 

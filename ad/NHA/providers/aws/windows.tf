@@ -44,5 +44,5 @@
   ami                = "ami-0f86e4f2f0ee6d61f"
   instance_type      = "t2.medium"
   private_ip_address = "{{ip_range}}.23"
-  password           = "EalwxkfhqsdP+xh7sdfzaRk6j90"
+  password           = "EalwxkfhqsdP+xh7sdfzaRj90"
 }

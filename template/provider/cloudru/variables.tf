@@ -16,6 +16,12 @@ variable "nat_gateway_spec" {
   default     = 1
 }
 
+variable "name_prefix" {
+  description = "Name prefix for deployed instances"
+  type        = string
+  default     = "GOAD-{{lab_name}}"
+}
+
 # Credentials
 variable "username" {
   description = "Username for local administrator of Windows VMs - Password is defined in the deploy.tf file for each VM"

@@ -15,7 +15,7 @@ variable "vm_config" {
 resource "sbercloud_compute_instance" "goad_vm" {
   for_each = var.vm_config
 
-  name               = "{{lab_name}}-${each.value.name}"
+  name               = "${var.name_prefix}-${each.value.name}"
   region             = var.region
   image_name         = each.value.os_image
   flavor_id          = each.value.size
