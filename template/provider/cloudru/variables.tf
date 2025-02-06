@@ -26,7 +26,7 @@ variable "name_prefix" {
 variable "username" {
   description = "Username for local administrator of Windows VMs - Password is defined in the deploy.tf file for each VM"
   type        = string
-  default     = "goadmin"
+  default     = "administrator"
 }
 
 variable "jumpbox_username" {
