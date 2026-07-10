@@ -88,6 +88,13 @@ class Goad(cmd.Cmd):
         else:
             self.lab_manager.get_current_instance_provider().stop_vm(arg)
 
+    def do_restart_vm(self, arg):
+        if arg == '':
+            Log.error('missing virtual machine name')
+            Log.info('restart_vm <vm>')
+        else:
+            self.lab_manager.get_current_instance_provider().restart_vm(arg)
+
     def do_destroy(self, arg=''):
         if self.lab_manager.get_current_instance_provider():
             self.lab_manager.get_current_instance_provider().destroy()
