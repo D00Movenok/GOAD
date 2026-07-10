@@ -237,6 +237,6 @@ class Command:
         ssh_command = f"ssh -o StrictHostKeyChecking=no -i {ssh_key}"
         exclude_from = ''
         if exclude:
-            exclude_from = '--exclude-from=".gitignore"'
+            exclude_from = '--exclude-from=".gitignore" --exclude-from=".env"'
         command = f'rsync -a {exclude_from} -e "{ssh_command}" {source} {destination}'
         self.run_shell(command, source)
