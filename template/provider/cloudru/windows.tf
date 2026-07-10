@@ -37,8 +37,8 @@ resource "sbercloud_compute_instance" "goad_vm" {
 }
 
 # sleep because of sysprep SID change
-resource "time_sleep" "goad_vm_wait_11m" {
+resource "time_sleep" "goad_vm_wait_windows_machine" {
   depends_on = [sbercloud_compute_instance.goad_vm]
 
-  create_duration = "11m"
+  create_duration = "4m"
 }

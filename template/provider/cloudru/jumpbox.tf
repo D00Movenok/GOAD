@@ -15,7 +15,7 @@ resource "sbercloud_nat_dnat_rule" "goad_dnat_jumpbox" {
 resource "sbercloud_compute_instance" "jumpbox" {
   name               = "${var.name_prefix}-jumpbox-ubuntu"
   region             = var.region
-  image_name         = "Ubuntu 22.04 server 64bit"
+  image_name         = "Ubuntu 24.04 server 64bit"
   flavor_id          = var.jumpbox_size
   security_group_ids = [sbercloud_networking_secgroup.secgroup_allow_any.id]
 

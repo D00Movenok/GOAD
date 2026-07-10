@@ -31,7 +31,7 @@ resource "sbercloud_compute_instance" "linux_goad_vm" {
   system_disk_size = 60
 
   user_data = templatefile("${path.module}/instance-init-linux.yml.tpl", {
-    username = var.username
+    username = var.linux_username
     password = each.value.password
     key      = tls_private_key.linux_ssh.public_key_openssh
   })
@@ -44,4 +44,11 @@ resource "sbercloud_compute_instance" "linux_goad_vm" {
   provisioner "local-exec" {
     command = "echo '${tls_private_key.linux_ssh.private_key_pem}' > ../ssh_keys/${each.value.name}_ssh.pem && chmod 600 ../ssh_keys/${each.value.name}_ssh.pem"
   }
+}
+
+# sleep because of deployment time
+resource "time_sleep" "goad_vm_wait_linux_machine" {
+  depends_on = [sbercloud_compute_instance.linux_goad_vm]
+
+  create_duration = "1m"
 }

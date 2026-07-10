@@ -29,6 +29,12 @@ variable "username" {
   default     = "administrator"
 }
 
+variable "linux_username" {
+  description = "Username for local administrator of Linux VMs"
+  type        = string
+  default     = "ansible"
+}
+
 variable "jumpbox_username" {
   description = "Username for jumpbox SSH user"
   type        = string
