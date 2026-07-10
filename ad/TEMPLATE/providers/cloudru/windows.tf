@@ -6,6 +6,13 @@
   name               = "dc01"
   os_image           = "Windows_Server_2019_Datacenter_64bit_06_2025_sysprep"
   private_ip_address = "{{ip_range}}.10"
-  password           = "8dCT-DJjgScp"
+  password           = "dc_and_domain_password"
+  size               = "s7n.large.2"
+}
+"srv01" = {
+  name               = "srv01"
+  os_image           = "Windows_Server_2019_Datacenter_64bit_06_2025_sysprep"
+  private_ip_address = "{{ip_range}}.11"
+  password           = "srv_password"
   size               = "s7n.large.2"
 }
