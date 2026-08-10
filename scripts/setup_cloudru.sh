@@ -1,10 +1,10 @@
 #!/bin/bash
 
-export LANG=C.utf8
-export LC_ALL=C.utf8
+export LANG=C.UTF-8
+export LC_ALL=C.UTF-8
 # sudo rm -f /etc/ssh/sshd_config.d/99-goad-locale.conf
 sudo sed -i '/^SetEnv .*LANG=/d' /etc/ssh/sshd_config
-echo 'SetEnv LANG=C.utf8 LC_ALL=C.utf8' | sudo tee -a /etc/ssh/sshd_config >/dev/null
+echo 'SetEnv LANG=C.UTF-8 LC_ALL=C.UTF-8' | sudo tee -a /etc/ssh/sshd_config >/dev/null
 sudo systemctl restart ssh
 
 # Install git and python3
